@@ -37,6 +37,7 @@ DWORD64 FindPattern( const char* szModule, BYTE* bMask, const char* szMask )
 
 void AddToLog( const char* fmt, ... )
 {
+	/*
 	va_list va;
 	va_start( va, fmt );
 
@@ -59,6 +60,7 @@ void AddToLog( const char* fmt, ... )
 	OutputDebugStringA( buff );
 	fprintf_s( f, buff );
 	fclose( f );
+	*/
 }
 
 void DrawEverything( IDXGISwapChain* pDxgiSwapChain )
@@ -173,11 +175,13 @@ void DrawEverything( IDXGISwapChain* pDxgiSwapChain )
 		fix_renderstate();
 
 		render.BeginScene();
-		render.FillRect( 10.f, 10.f, 500.f, 500.f, 0xFFFF1010 );
+		render.FillRect( 10.f, 10.f, 100.f, 100.f, 0xFFFF1010 );
 		render.OutlineRect( 9.f, 9.f, 501.f, 501.f, -1 );
 		render.DrawLine( XMFLOAT2( 10.f, 50.f ), XMFLOAT2( 25.f, 75.f ), -1 );
 		render.RenderText( L"she been bouncing on my lap lap lap", 10.f, 10.f, -1, false, false );
 		render.RenderText ( L"we are obama gaming.", 10.f, 50.f, -1, false, true );
+
+		render.RenderText(L"catjpg on top", 700.f, 600.f, 0xFFFFFFFF, false, true);
 		render.EndScene();
 	}
 }

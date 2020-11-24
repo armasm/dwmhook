@@ -27,7 +27,11 @@ using namespace DirectX;
 #pragma comment( lib, "d3d11" )
 #pragma comment( lib, "dcomp" )
 #pragma comment( lib, "dwrite" )
+#ifdef _DEBUG
+#pragma comment( lib, "minhook-debug.lib" )
+#else
 #pragma comment( lib, "minhook.lib" )
+#endif
 #pragma comment( lib, "d3dcompiler.lib" )
 
 #define SAFE_RELEASE( p )	if( p ) { p->Release(); p = nullptr; }
